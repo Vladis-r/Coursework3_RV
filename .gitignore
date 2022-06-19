@@ -1,0 +1,9 @@
+/venv/
+.pytest_cache
+venv/
+.idea/
+__pycache__/
+env/
+.log
+logs/logs_api.log
+logs/logs_posts.log

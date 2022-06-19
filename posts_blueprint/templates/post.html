@@ -27,9 +27,9 @@
     <section class="items">
       <div class="items__item item item--post">
         <div class="item__top">
-          <a href="user-feed.html" class="item__head">
+          <a href=/user/{{ post.poster_name }} class="item__head">
             <div class="item__ava-wrap">
-              <img src={{ post.poster_avatar }} alt="no image" class="item__ava" width="47">
+              <img src={{ post.poster_avatar }} alt="" class="item__ava" width="47">
             </div>
             <span class="item__username">{{ post.poster_name }}</span>
           </a>
@@ -44,23 +44,22 @@
           <p class="item__text">
             {{ post.content }}
           </p>
-
         </div>
         <div class="item__bottom">
           <div class="item__post-info">
-            <p class="item__comments-counter">{{ len_comments }}</p>
+            <p class="item__comments-counter">{{ len_comments }} комментария</p>
             <div class="item__counter">
               <img src="/static/img/eye.png" alt="" class="item__counter-icon" width="26">
-              <span class="item__counter-text">1023</span>
+              <span class="item__counter-text">{{ post.views_count }}</span>
             </div>
           </div>
+            {% for comment in comments %}
           <div class="item__comments">
-              {% for comment in comments %}
             <p class="item__comment">
               <b>{{ comment.commenter_name }}:</b> {{ comment.comment }}
             </p>
-            {% endfor %}
           </div>
+            {% endfor %}
         </div>
       </div>
     </section>
